@@ -1,4 +1,4 @@
-<!-- REVOLUTION SLIDER FUNCTION FOR HOME PAGE STYLE 1 ===== -->
+
 
 			var tpj=jQuery;
 			var revapi26;
@@ -97,5 +97,3 @@
 					});
 				}
 			});	/*ready*/
-
-<!-- REVOLUTION SLIDER FUNCTION FOR HOME PAGE STYLE 1 END  ===== -->
