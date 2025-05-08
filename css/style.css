@@ -12341,6 +12341,7 @@ footer .widget_getintuch i {
 
 .wt-footer-bot-right {
 	float: right;
+	display: none;
 }
 
 .wt-footer-bot-center {
