@@ -6976,7 +6976,7 @@ ol.list-num-count.list-outline-none>li:before {
 .google-map-gray iframe {
 	width: 100%;
 	border: 0px;
-	filter: grayscale(100%);
+	/* filter: grayscale(100%); */
 }
 
 .contact-left-part .google-map iframe {

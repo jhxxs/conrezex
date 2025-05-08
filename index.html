@@ -57,12 +57,13 @@
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,300italic,400italic,500,500italic,700,700italic,900italic,900' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,800italic,800,700italic' rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/css?family=Crete+Round:400,400i&amp;subset=latin-ext" rel="stylesheet">
-    
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>    
 </head>
 
 <body id="bg">
 
-	<div class="page-wraper"> 
+	<div id="app" class="page-wraper"> 
        	
         <!-- HEADER START -->
         <header class="site-header header-style-3 topbar-transparent mobile-sider-drawer-menu">
@@ -155,7 +156,7 @@
                                         <li>
                                             <ul>
                                                 <li><a href="contact-1.html">Contact us 1</a></li>
-                                                <li><a href="contact-2.html">Contact us 2</a></li>
+                                                <li><a href="contact.html">Contact us 2</a></li>
                                                 <li><a href="contact-3.html">Contact us 3</a></li>
                                                 <li><a href="career.html">Career</a></li>
                                             </ul>
@@ -425,7 +426,7 @@
                                     data-paddingleft="[0,0,0,0]"
                                     
                                     style="z-index:13; text-transform:uppercase;">
-                                    <a href="contact-1.html" class="site-button slider-btn-left">联系我们</a>
+                                    <a href="contact.html" class="site-button slider-btn-left">联系我们</a>
                                     </div>
                                     
                                   </li>
@@ -829,79 +830,25 @@
                 <div class="container">
                     <!-- TITLE START-->
                     <div class="section-head text-center">
-                        <h2 class="font-36 font-weight-900">Featured Cases</h2>
+                        <h2 class="font-36 font-weight-900">城市新地&nbsp;&nbsp播种梦想</h2>
                     </div>
                     <!-- TITLE END-->
                  </div>   
                 <div class="container">                                    	
                     <div class="section-content" data-toggle="tab-hover">
                         <div class="row">
-                            <div class="col-lg-4 col-md-6 m-b30">
-                                <div class="wt-box radius-md overflow-hide">
-                                    <div class="wt-thum-bx wt-img-effect wt-img-overlay2">
-                                        <img src="images/gallery/shanghai.jpg" alt="">	
+                            <div v-for="item in city" :key="item.label" class="col-lg-4 col-md-6 m-b30">
+                                <a :href="`services-detail.html?city=${item.label}`">
+                                    <div class="wt-box radius-md overflow-hide">
+                                        <div class="wt-thum-bx wt-img-effect wt-img-overlay2">
+                                            <img :src="`images/gallery/${item.label}.jpg`" alt="">	
+                                        </div>
+                                        <div class="wt-info bg-white text-left p-a20">
+                                            <h4 class="text-uppercase m-b0">{{item.name}}</h4>
+                                        </div>
                                     </div>
-                                    <div class="wt-info bg-white text-left p-a20">
-                                        <a href="services-detail.html"><h4 class="text-uppercase m-b0">上海</h4></a>
-                                     </div>
-                                </div>
+                                </a>
                             </div> 
-                            
-                            <div class="col-lg-4 col-md-6 m-b30">
-                                <div class="wt-box radius-md overflow-hide">
-                                    <div class="wt-thum-bx wt-img-effect wt-img-overlay2">
-                                        <img src="images/gallery/nanjing.jpg" alt="">	
-                                    </div>
-                                    <div class="wt-info bg-white text-left p-a20">
-                                        <a href="services-detail.html"><h4 class="text-uppercase m-b0">南京</h4></a>
-                                     </div>
-                                </div>
-                            </div> 
-                              
-                            <div class="col-lg-4 col-md-6 m-b30">
-                                <div class="wt-box radius-md overflow-hide">
-                                    <div class="wt-thum-bx wt-img-effect wt-img-overlay2">
-                                        <img src="images/gallery/shenyang.jpg" alt="">	
-                                    </div>
-                                    <div class="wt-info bg-white text-left p-a20">
-                                        <a href="services-detail.html"><h4 class="text-uppercase m-b0">沈阳</h4></a>
-                                     </div>
-                                </div>
-                            </div> 
-                             
-                            <div class="col-lg-4 col-md-6 m-b30">
-                                <div class="wt-box radius-md overflow-hide">
-                                    <div class="wt-thum-bx wt-img-effect wt-img-overlay2">
-                                        <img src="images/gallery/suzhou.jpg" alt="">	
-                                    </div>
-                                    <div class="wt-info bg-white text-left p-a20">
-                                        <a href="services-detail.html"><h4 class="text-uppercase m-b0">苏州</h4></a>
-                                     </div>
-                                </div>
-                            </div> 
-                            
-                            <div class="col-lg-4 col-md-6 m-b30">
-                                <div class="wt-box radius-md overflow-hide">
-                                    <div class="wt-thum-bx wt-img-effect wt-img-overlay2">
-                                        <img src="images/gallery/qingdao.jpg" alt="">	
-                                    </div>
-                                    <div class="wt-info bg-white text-left p-a20">
-                                        <a href="services-detail.html"><h4 class="text-uppercase m-b0">青岛</h4></a>
-                                     </div>
-                                </div>
-                            </div> 
-                              
-                            <div class="col-lg-4 col-md-6 m-b30">
-                                <div class="wt-box radius-md overflow-hide">
-                                    <div class="wt-thum-bx wt-img-effect wt-img-overlay2">
-                                        <img src="images/gallery/nanchang.jpg" alt="">	
-                                    </div>
-                                    <div class="wt-info bg-white text-left p-a20">
-                                        <a href="services-detail.html"><h4 class="text-uppercase m-b0">南昌</h4></a>
-                                     </div>
-                                </div>
-                            </div>                              
-                                              
                         </div>
                     </div>                    
                 </div>
@@ -911,7 +858,7 @@
             <!-- FEATURED CASES SECTION END -->
             
              <!-- NEED A CONSULTANT SECTION START -->
-            <div class="section-full  p-t80 p-b50 overlay-wraper bg-parallax" data-stellar-background-ratio="0.5" style="background-image:url(images/background/bg4.jpg);">
+            <div class="section-full  p-t80 p-b50 overlay-wraper bg-parallax" data-stellar-background-ratio="0.5" style="background-image:url(images/background/bg4.jpg);display: none;">
             	<div class="overlay-main bg-black opacity-07"></div>
                 <div class="container text-center max-w700">
                      <div class="text-white help-section">   
@@ -924,79 +871,9 @@
                 </div>
             </div>
             <!-- NEED A CONSULTANT SECTION  END -->  
-                                    
-            <!-- SERVICES  SECTION START -->
-            <div class="section-full bg-gray p-t80 p-b50">
-                <div class="container">                                    	
-                    <div class="section-content">
-                        <div class="row">
-                            <div class="col-lg-6 col-md-12">
-                                <div class="wt-box m-b30">
-                                	<h2 class="m-t0 m-b10">Our Best Services For You</h2>
-                                    <h4>Udicium Appear bearing seasons cattle appear earth male moved give midst seed in you’ll likeness earth herb yielding. </h4>
-                                    <p>Our new professional accountants and administrators ready. tempus, arcu quis vehicula posuere, massa lacus. Udicium Appear bearing seasons cattle appear earth male moved give midst seed in you’ll likeness earth herb yielding. Our new professional accountants and administrators ready. tempus, arcu quis vehicula posuere, massa lacus. cattle appear earth male moved give midst seed in you’ll likeness earth herb yielding.</p>
-                                    <div class="wt-media">
-                               	    	<img src="images/collage/h2.png" alt="" class="img-full"> 
-                                    </div>
-                              </div>
-                            </div>                          
-                            <div class="col-lg-6 col-md-12">
-                                <div class="m-b30">
-                                    <div class="wt-icon-box-wraper left  p-a30   bg-white  bdr-left bdr-4 bdr-gray radius-md">
-                                        <div class="icon-md site-text-primary radius">
-                                            <span class="icon-cell  site-text-primary"><i class="fa fa-line-chart"></i></span>
-                                        </div>
-                                        <div class="icon-content">
-                                            <h4 class="wt-tilte text-uppercase m-b5">Financial Planning</h4>
-                                            <p>Seasons cattle appear earth male moved give midst seed in you’ll likeness earth herb yielding. Our new professional accountants and administrators ready.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="m-b30">
-                                    <div class="wt-icon-box-wraper left  p-a30   bg-white  bdr-left bdr-4 bdr-gray radius-md">
-                                        <div class="icon-md site-text-primary radius">
-                                            <span class="icon-cell  site-text-primary"><i class="fa fa-balance-scale"></i></span>
-                                        </div>
-                                        <div class="icon-content">
-                                            <h4 class="wt-tilte text-uppercase m-b5">Tax Planning & Legal Support</h4>
-                                            <p>Seasons cattle appear earth male moved give midst seed in you’ll likeness earth herb yielding. Our new professional accountants and administrators ready.</p>
-                                        </div>
-                                    </div>
-                                </div> 
-                                <div class="m-b30">
-                                    <div class="wt-icon-box-wraper left  p-a30   bg-white  bdr-left bdr-4 bdr-gray radius-md">
-                                        <div class="icon-md site-text-primary radius">
-                                            <span class="icon-cell  site-text-primary"><i class="fa fa-subway"></i></span>
-                                        </div>
-                                        <div class="icon-content">
-                                            <h4 class="wt-tilte text-uppercase m-b5">Logistic Distribution</h4>
-                                            <p>Seasons cattle appear earth male moved give midst seed in you’ll likeness earth herb yielding. Our new professional accountants and administrators ready.</p>
-                                        </div>
-                                    </div>
-                                </div> 
-                                <div class="m-b30">
-                                    <div class="wt-icon-box-wraper left  p-a30   bg-white  bdr-left bdr-4 bdr-gray radius-md">
-                                        <div class="icon-md site-text-primary radius">
-                                            <span class="icon-cell  site-text-primary"><i class="fa fa-id-card-o"></i></span>
-                                        </div>
-                                        <div class="icon-content">
-                                            <h4 class="wt-tilte text-uppercase m-b5">Audit & Assurance</h4>
-                                            <p>Seasons cattle appear earth male moved give midst seed in you’ll likeness earth herb yielding. Our new professional accountants and administrators ready.</p>
-                                        </div>
-                                    </div>
-                                </div> 
-                            </div>                                                                                                                                   
-                                                       
-                        </div>
-                    </div>                    
-                </div>
-                
-                
-            </div>   
-            <!-- SERVICES CASES SECTION END -->
-            
+                                            
             <!-- FINANCIAL SOLUTION SECTION START -->
-            <div class="section-full p-t80 p-b50 bg-white">
+            <div class="section-full p-t80 p-b50 bg-white" style="display: none;">
                 <div class="container">
 					<div class="wt-box text-center max-w900 center-block">
                         <h2 class="font-36 m-t0">We Use Our Focused Set Of Capabilities To Build <br>Great Experiences</h2>
@@ -1010,7 +887,7 @@
            </div>     
                        
             <!-- SECTION CONTENT -->
-            <div class="section-full bg-white p-t80 p-b50">
+            <div class="section-full bg-white p-t80 p-b50" style="display: none;">
                 <div class="container">
                     <!-- TITLE START-->
                     <div class="section-head text-center">
@@ -1116,7 +993,7 @@
                             <ul class="copyrights-nav pull-right"> 
                                 <li><a href="about-1.html">Terms  & Condition</a></li>
                                 <li><a href="about-1.html">Privacy Policy</a></li>
-                                <li><a href="contact-1.html">联系我们</a></li>
+                                <li><a href="contact.html">联系我们</a></li>
                             </ul>
                         </div>
                     </div>
@@ -1174,7 +1051,39 @@
 <!-- REVOLUTION SLIDER SCRIPT FILES -->
 <script src="js/rev-script-3.js"></script>
 
-
+<script>
+new Vue({
+    el: '#app',
+    data: {
+        city: [
+            {
+                name: '青岛',
+                label: 'qingdao',
+            },
+            {
+                name: '苏州',
+                label: 'suzhou',
+            },
+            {
+                name: '南京',
+                label: 'nanjing',
+            },
+            {
+                name: '南昌',
+                label: 'nanchang',
+            },
+            {
+                name: '上海',
+                label: 'shanghai',
+            },
+            {
+                name: '沈阳',
+                label: 'shenyang',
+            },
+        ]
+    }
+}) 
+</script>
 </body>
 
 </html>
