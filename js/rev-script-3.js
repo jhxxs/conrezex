@@ -55,7 +55,7 @@
                 responsiveLevels: [1240, 1024, 778, 480],
                 visibilityLevels: [1240, 1024, 778, 480],
                 gridwidth: [1240, 1240, 1240, 1240],
-                gridheight: [670, 670, 670, 670],
+                gridheight: [900, 900, 900, 900],
                 lazyType: "none",
                 parallax: {
                     type: "mouse",
