@@ -770,7 +770,7 @@ function sticky_sidebar(){
 	// Fade slider for home function by = owl.carousel.js ========================== //   
 	   aboutus_carousel(),
    //  Blog post Carousel function by = owl.carousel.js ========================== //
-	   service_detail_carousel(),
+	//    service_detail_carousel(),
    //  blog Carousel_1 Full Screen with no margin function by = owl.carousel.js ========================== //
 	   blog_carousel_1(),
 	//  Home4 services Carousel_1 Full Screen with no margin function by = owl.carousel.js ==========================  //  

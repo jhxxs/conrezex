@@ -53,13 +53,13 @@
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,300italic,400italic,500,500italic,700,700italic,900italic,900' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,800italic,800,700italic' rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/css?family=Crete+Round:400,400i&amp;subset=latin-ext" rel="stylesheet">
-    
- 
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>    
 </head>
 
 <body id="bg">	
 
-    <div class="page-wraper">  
+    <div id="app" class="page-wraper">  
       	
         <!-- HEADER START -->
         <header class="site-header header-style-6  mobile-sider-drawer-menu">
@@ -311,265 +311,53 @@
                                 </div>   
                             </form>
                         </div>
-                        
-                        
                     </div>
                 </div>
             </div>            
             
         </header>
         <!-- HEADER END -->
-        
+
         <!-- CONTENT START -->
         <div class="page-content  bg-white">
-        
-            <!-- INNER PAGE BANNER -->
-            <div class="wt-bnr-inr overlay-wraper" style="background-image:url(images/banner/services.jpg);">
-                <div class="overlay-main bg-black opacity-07"></div>
-                <div class="container">
-                    <div class="wt-bnr-inr-entry">
-                        <h1 class="text-white">Service Details</h1>
-                        <!-- BREADCRUMB ROW -->                            
-                        <ul class="wt-breadcrumb breadcrumb-style-2">
-                            <li><a href="javascript:void(0);"><i class="fa fa-home"></i> Home</a></li>
-                            <li>Service Details</li>
-                        </ul>
-                        <!-- BREADCRUMB ROW END -->                        
-                    </div>
-                </div>
-            </div>
-            <!-- INNER PAGE BANNER END -->
-            
             <!-- SECTION CONTENT -->         
-            <div class="section-full  p-t80 p-b50">
-                <div class="container ">
-                    <div class="section-content ">
-
+            <div class="section-content">
+                <div class="container p-t10 p-b50">
+                    <img :src="`images/detail/cover_${city.id}.jpg`" style="width:100%; height: auto; object-fit: contain;" />
+                </div>
+                <div v-for="(hotel, index) in city.hotel" class="container">
+                    <div class="section-content">
                         <div class="m-b50">
                             <div class="row">
-                                <div class="col-lg-6 col-md-12">
-                                    <div class="owl-carousel service-detail-carousel owl-btn-vertical-center owl-dots-bottom-center m-b20">
-                                
-                                        <div class="item">
-                                            <div class="aon-thum-bx">
-                                                <img src="images/our-work/pic1.jpg" alt="">
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="item">
-                                            <div class="aon-thum-bx">
-                                                <img src="images/our-work/pic2.jpg" alt="">
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="item">
-                                            <div class="aon-thum-bx">
-                                                <img src="images/our-work/pic3.jpg" alt="">
-                                            </div>
-                                        </div>                                    
-                                    
-                                    </div>                                
-                                </div>
-                                <div class="col-lg-6 col-md-12">
-                                    <div class="wt-box">
-                                        <h2 class="m-t0">Business Consulting Service</h2>
-                                        <p>
-                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen in book. remaining essentially unchanged. It was popularised in the with the. 
-                                        </p>
-                                        <blockquote>
-                                            <p>
-                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore voluptatem officiis quod animi possimus a, iure nam sunt quas aperiam non recusandae reprehenderit, nesciunt cumque pariatur totam.
-                                            </p>
-                                        </blockquote>
+                                <template v-if="index % 2 == 0">
+                                    <div class="col-lg-8 col-md-12">
+                                       <img :src="`images/detail/${hotel.cover}`" alt="">                   
                                     </div>
-                                </div>
-                            </div>
-                            <div class="wt-box">
-                                <p>
-                                    Printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scram bled it to make a type specimen book. remaining essentially unchanged. It was popularised in the with the . 
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. remaining essentially unchanged. It was popularised in the with the. 
-                                </p>
-                            </div>
+                                    <div class="col-lg-4 col-md-12 p-t20">
+                                        <div class="wt-box" style="display: flex; flex-direction: column; justify-content: center; align-items: center;height: 100%;">
+                                            <h2 class="m-t0">{{ hotel.name }}</h2>
+                                            <h5 v-if="hotel.slogan">{{hotel.slogan}}</h5>
+                                            <p v-for="item in hotel.desc">{{item}}</p>
+                                        </div>
+                                    </div>
+                                </template>
+                                <template v-else>
+                                     <div class="col-lg-4 col-md-12 p-t20" >
+                                        <div class="wt-box" style="display: flex; flex-direction: column; justify-content: center; align-items: center;height: 100%;">
+                                            <h2 class="m-t0">{{ hotel.name }}</h2>
+                                            <h5 v-if="hotel.slogan">{{hotel.slogan}}</h5>
+                                            <p v-for="item in hotel.desc">{{item}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-8 col-md-12">
+                                        <img :src="`images/detail/${hotel.cover}`" alt="">                       
+                                    </div>
+                                </template>
+                            </div>  
+                            <div>
+                                <img v-for="item in hotel.imgs" :src="`images/detail/${item}`" alt="" class="m-t20">   
+                            </div>                         
                         </div>
-
-                        <div class="m-b50">
-                            <!-- TITLE START-->
-                            <div class="section-head text-center">
-                                <h2 class="text-uppercase">Related Case Studies</h2>
-                                <div class="wt-separator-outer">
-                                    <div class="wt-separator site-bg-primary"></div>
-                                </div>
-                            </div>
-                            <!-- TITLE END-->                             
-                            <div class="row d-flex justify-content-center">
-                                <div class="col-lg-4 col-md-6">
-                                    <div class="wt-box  m-b30 radius-md overflow-hide">
-                                        <div class="wt-media">
-                                            <a href="#"><img src="images/gallery/pic5.jpg" alt=""></a>
-                                        </div>
-                                        <div class="wt-icon-box-wraper  p-a30 left bg-white">
-                                            <div class="icon-content bdr-4 bdr-left bdr-primary  p-l20">
-                                                <h4 class="wt-tilte text-uppercase font-weight-500 m-b5">Corporate Services</h4>
-                                                <p>I am text block. Click edit button to change this text. Lorem ipsum dolor sit amet.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-6">
-                                    <div class="wt-box  m-b30 radius-md overflow-hide">
-                                        <div class="wt-media">
-                                            <a href="#"><img src="images/gallery/pic7.jpg" alt=""></a>
-                                        </div>
-                                        <div class="wt-icon-box-wraper  p-a30 left bg-white">
-                                            <div class="icon-content bdr-4 bdr-left bdr-primary  p-l20">
-                                                <h4 class="wt-tilte text-uppercase font-weight-500 m-b5">Financial Planing</h4>
-                                                <p>I am text block. Click edit button to change this text. Lorem ipsum dolor sit amet.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div> 
-                                <div class="col-lg-4 col-md-6">
-                                    <div class="wt-box  m-b30 radius-md overflow-hide">
-                                        <div class="wt-media">
-                                            <a href="#"><img src="images/gallery/pic5.jpg" alt=""></a>
-                                        </div>
-                                        <div class="wt-icon-box-wraper  p-a30 left bg-white">
-                                            <div class="icon-content bdr-4 bdr-left bdr-primary  p-l20">
-                                                <h4 class="wt-tilte text-uppercase font-weight-500 m-b5">Corporate Services</h4>
-                                                <p>I am text block. Click edit button to change this text. Lorem ipsum dolor sit amet.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>                                                                   
-                            </div>
-                        </div>
-
-                        <div class="wt-box">
-                            <div class="p-t30 p-b50">
-                                <!-- TITLE START -->
-                                <div class="section-head">
-                                                
-                                    <h2 class="text-uppercase">Frequently Asked Question</h2>
-                                    <div class="wt-separator-outer">
-                                        <div class="wt-separator site-bg-primary"></div> 
-                                    </div>
-                                
-                                </div>
-                                <!-- TITLE END -->
-                                <!-- ACCORDIAN  BACKGROUND GRAY -->                    
-                                <div class="section-content p-b30">
-                                    <div class="wt-accordion acc-bg-gray" id="accordion5">
-                                        <div class="panel wt-panel">
-                                            <div class="acod-head acc-actives">
-                                                <h6 class="acod-title text-uppercase">
-                                                    <a data-bs-toggle="collapse" href="#collapseOne5">
-                                                        <i class="fa fa-globe"></i>
-                                                        Why should is become a consultant?
-                                                        <span class="indicator"><i class="fa fa-plus"></i></span>
-                                                    </a>
-                                                </h6>
-                                            </div>
-                                            <div id="collapseOne5" class="acod-body collapse show" data-bs-parent="#accordion5">
-                                                <div class="acod-content p-tb15">Web design lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised sheets containing Lorem Ipsum passagese.</div>
-                                            </div>
-                                        </div>
-                                        <div class="panel wt-panel">
-                                            <div class="acod-head">
-                                                <h6 class="acod-title text-uppercase">
-                                                    <a data-bs-toggle="collapse" href="#collapseTwo5" class="collapsed">
-                                                        <i class="fa fa-photo"></i>
-                                                        How can I apply for post of consultant?
-                                                        <span class="indicator"><i class="fa fa-plus"></i></span>
-                                                    </a>
-                                                </h6>
-                                            </div>
-                                            <div id="collapseTwo5" class="acod-body collapse" data-bs-parent="#accordion5">
-                                                <div class="acod-content p-tb15">Graphic design lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised sheets containing Lorem Ipsum passagese.</div>
-                                            </div>
-                                        </div>
-                                        <div class="panel wt-panel">
-                                            <div class="acod-head">
-                                                <h6 class="acod-title text-uppercase">
-                                                    <a data-bs-toggle="collapse"  href="#collapseThree5" class="collapsed">
-                                                        <i class="fa fa-cog"></i>
-                                                        What are the qualification for consultant? 
-                                                        <span class="indicator"><i class="fa fa-plus"></i></span>
-                                                    </a>
-                                                </h6>
-                                            </div>
-                                            <div id="collapseThree5" class="acod-body collapse" data-bs-parent="#accordion5">
-                                                <div class="acod-content p-tb15">Developement lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised sheets containing Lorem Ipsum passagese.</div>
-                                            </div>
-                                        </div>
-                                    </div>                                        
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-4">
-                                <!-- BROCHURES -->
-                                <div class="wt-box m-b30">
-                                    <div class="text-left m-b20">
-                                            <h4 class="widget-title">Brochures</h4>
-                                        </div>
-                                    <div class="wt-icon-box-wraper left m-b15">
-                                        <a href="#" class="btn-block bg-gray  p-lr15 p-tb30">
-                                            <span class="m-r10"><i class="fa fa-file-pdf-o"></i></span>
-                                            <strong class="text-uppercase">Download .PDF</strong>
-                                        </a>
-                                    </div>
-                                    <div class="wt-icon-box-wraper left m-b15">
-                                        <a href="#" class="btn-block bg-gray  p-lr15 p-tb30">
-                                            <span class="m-r10"><i class="fa fa-file-word-o"></i></span>
-                                            <strong class="text-uppercase"> Download .DOC</strong>
-                                        </a>
-                                    </div>
-                                    <div class="wt-icon-box-wraper left m-b15">
-                                        <a href="#" class="btn-block bg-gray p-lr15 p-tb30">
-                                            <span class="m-r10"><i class="fa fa-file-powerpoint-o"></i></span>
-                                            <strong class="text-uppercase">Download .PPT</strong>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>                             
-                            <div class="col-md-4">
-                                <!-- Need to help -->
-                                <div class="wt-box  need-help m-b30">
-                                    <h4 class="widget-title">Need any help!</h4>
-                                    <p class="m-b15"><b> Find answers to frequently asked questions about Bizipress, contacts and general</b></p>
-                                    <p> been the industry's standard dummy text ever since the when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has any survived not only five an unknown printer took a galley of type and scrambled it to make a type specimen book. find answers.</p>
-                                    <a href="contact-1.html" class="site-button-secondry">联系我们</a>
-                                </div>
-                            </div>
-                            <div class="col-md-4">                          
-                                <!-- Quick Contact -->
-                                <div class="widget">
-                                    <h4 class="widget-title">Quick Contact</h4>
-                                    <div class="widget-quick-form">
-                                        <form>
-                                            <div class="form-group">
-                                                <input placeholder="Name" class="form-control" type="text">
-                                            </div>
-                                            
-                                            <div class="form-group">
-                                                <input placeholder="Email" class="form-control" type="text">
-                                            </div>
-                                            
-                                            <div class="form-group">
-                                                <textarea placeholder="Message" class="form-control" rows="3"></textarea>
-                                            </div>
-                                            
-                                            <div class="form-group">
-                                                <button type="submit" class="site-button text-uppercase font-weight-600">Submit</button>
-                                            </div>                                                                                                                                     
-                                            
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>  
-
                     </div> 
                 </div>
             </div>
@@ -682,6 +470,7 @@
 <script src="js/shortcode.js"></script><!-- SHORTCODE FUCTIONS  -->
 
 <script src="js/custom.js"></script><!-- CUSTOM FUCTIONS  -->
+<script src="js/detail.js"></script>
 
 
 </body>
